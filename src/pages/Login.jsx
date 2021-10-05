@@ -1,11 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Image } from "react-native";
-import Icon from "react-native-vector-icons/Entypo";
 import { Entypo } from "@expo/vector-icons";
 import Input from "../components/Input";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-import { Button, Text } from "react-native-elements";
+import DsrButton from "../components/Button";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 const Login = () => {
@@ -24,7 +21,7 @@ const Login = () => {
           <Input placeholder='Email' Icon='email' />
           <Input placeholder='Password' Icon='key' />
         </View>
-        <Button title='Login' style={styles.btn} />
+        <DsrButton title='Login' size="large" />
       </View>
     </SafeAreaView>
   );
@@ -45,7 +42,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     paddingVertical: 20,
     paddingHorizontal: 20,
-    height: 350,
+    height: 370,
   },
   Logo: {
     height: 70,
