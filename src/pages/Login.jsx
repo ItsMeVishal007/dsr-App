@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, View, TextInput, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import Input from "../components/Input";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { Button, Text } from "react-native-elements";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
@@ -10,12 +11,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 const Login = () => {
   return (
     <SafeAreaView
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        paddingHorizontal: 25,
-        marginBottom: 200,
-      }}
+      style={styles.mainRoot}
       edges={["top", "right", "left", "bottom"]}
     >
       <View style={styles.Login}>
@@ -25,16 +21,10 @@ const Login = () => {
         />
 
         <View style={styles.InputParent}>
-          <View style={styles.inputContainer}>
-            <TextInput placeholder='Email' style={styles.input} />
-            <MaterialCommunityIcons name='email' size={24} color='black' />
-          </View>
-
-          <View style={styles.inputContainer}>
-            <TextInput placeholder='Password' style={styles.input} />
-            <Entypo name='lock' size={24} color='black' />
-          </View>
+          <Input placeholder='Email' Icon='email' />
+          <Input placeholder='Password' Icon='key' />
         </View>
+        <Button title='Login' style={styles.btn} />
       </View>
     </SafeAreaView>
   );
@@ -43,6 +33,12 @@ const Login = () => {
 export default Login;
 
 const styles = StyleSheet.create({
+  mainRoot: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 25,
+    marginBottom: 200,
+  },
   Login: {
     display: "flex",
     justifyContent: "space-around",
@@ -60,23 +56,5 @@ const styles = StyleSheet.create({
     display: "flex",
     height: 120,
     justifyContent: "space-between",
-  },
-  inputContainer: {
-    backgroundColor: "#ffffff",
-    borderWidth: 1,
-    borderColor: "#b2bec3",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: 10,
-    borderRadius: 5,
-  },
-  input: {
-    height: 50,
-    backgroundColor: "#ffffff",
-    paddingLeft: 15,
-    paddingRight: 15,
-    fontSize: 20,
   },
 });
