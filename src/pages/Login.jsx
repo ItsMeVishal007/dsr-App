@@ -4,6 +4,7 @@ import { Entypo } from "@expo/vector-icons";
 import Input from "../components/Input";
 import DsrButton from "../components/Button";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { styles } from "../styles/Login";
 
 const Login = () => {
   return (
@@ -21,37 +22,10 @@ const Login = () => {
           <Input placeholder='Email' Icon='email' />
           <Input placeholder='Password' Icon='key' />
         </View>
-        <DsrButton title='Login' size="large" />
+        <DsrButton title='Login' size='large' />
       </View>
     </SafeAreaView>
   );
 };
 
 export default Login;
-
-const styles = StyleSheet.create({
-  mainRoot: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 25,
-    marginBottom: 200,
-  },
-  Login: {
-    display: "flex",
-    justifyContent: "space-around",
-    borderRadius: 6,
-    paddingVertical: 20,
-    paddingHorizontal: 20,
-    height: 370,
-  },
-  Logo: {
-    height: 70,
-    width: 280,
-    alignSelf: "center",
-  },
-  InputParent: {
-    display: "flex",
-    height: 120,
-    justifyContent: "space-between",
-  },
-});
