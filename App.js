@@ -6,9 +6,10 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Report from "./src/pages/Report";
-import Login from "./src/pages/Login";
-import Profile from "./src/pages/Profile";
+import { FontAwesome } from "@expo/vector-icons";
+import Report from "./src/screens/Report";
+import Login from "./src/screens/Login";
+import Profile from "./src/screens/Profile";
 
 const HomeStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,23 +22,40 @@ const MainScreen = () => {
       }}
       screenOptions={{
         tabBarStyle: {
-          height: 80,
+          height: 70,
+          backgroundColor: "#273c75",
         },
+        headerTintColor: "white",
       }}
     >
       <Tab.Screen
         options={{
-          headerShown: false,
+          headerShown: true,
           title: "Report",
+          tabBarIcon: () => <FontAwesome name='file' size={24} color='white' />,
+          headerStyle: {
+            backgroundColor: "#273c75",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
         }}
         name='Report'
         component={Report}
       />
       <Tab.Screen
         options={{
-          headerShown: false,
-
+          headerShown: true,
           title: "Profile",
+          headerStyle: {
+            backgroundColor: "#273c75",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+          tabBarIcon: () => <FontAwesome name='user' size={24} color='white' />,
         }}
         name='Profile'
         component={Profile}
