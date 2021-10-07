@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   mainRoot: {
     marginHorizontal: 10,
     marginTop: 10,
-    borderColor: "red",
-    borderWidth: 2,
+    // borderColor: "red",
+    // borderWidth: 2,
   },
 });

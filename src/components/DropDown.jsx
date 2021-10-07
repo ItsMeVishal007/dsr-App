@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TouchableOpacity, FlatList } from "react-native";
-import { Text } from "react-native-elements";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
+// import { Text } from "react-native-elements";
+import { AntDesign } from "@expo/vector-icons";
 import Spacer from "./Spacer";
 
 const Projects = [
@@ -20,6 +27,7 @@ const Projects = [
 
 const DropDown = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [DropDownLabel, setDropDownLabel] = useState("Select Project");
   return (
     <Spacer>
       <View>
@@ -29,13 +37,35 @@ const DropDown = () => {
             setIsClicked((previousData) => !previousData);
           }}
         >
-          <Text h4 style={{ color: "#353b48" }}>
-            Select Project
+          <Text style={{ fontSize: 22, fontWeight: "bold", color: "#353b48" }}>
+            {DropDownLabel}
           </Text>
+          <AntDesign name='caretdown' size={18} color='black' />
         </TouchableOpacity>
         <FlatList
+          style={{
+            paddingVertical: 7,
+            borderWidth: 2,
+            borderColor: "grey",
+            borderBottomLeftRadius: 6,
+            borderBottomRightRadius: 6,
+            borderTopWidth: 0,
+          }}
           data={Projects}
-          renderItem={({ item }) => <Text>{item.name}</Text>}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={{ paddingVertical: 8, paddingHorizontal: 6 }}
+              onPress={() => {
+                setDropDownLabel(item.name);
+              }}
+            >
+              <Text
+                style={{ fontSize: 20, fontWeight: "bold", color: "#353b48" }}
+              >
+                {item.name}
+              </Text>
+            </TouchableOpacity>
+          )}
           keyExtractor={(item) => item.name}
         />
       </View>
@@ -47,9 +77,14 @@ export default DropDown;
 
 const styles = StyleSheet.create({
   dropdown: {
-    borderWidth: "blue",
+    borderColor: "grey",
     borderWidth: 1,
-    paddingVertical: 5,
+    paddingVertical: 8,
+    paddingHorizontal: 6,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   options: {
     paddingVertical: 4,
