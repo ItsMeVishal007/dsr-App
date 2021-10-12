@@ -50,6 +50,7 @@ const DropDown = () => {
             borderBottomLeftRadius: 6,
             borderBottomRightRadius: 6,
             borderTopWidth: 0,
+            height: isClicked && 0,
           }}
           data={Projects}
           renderItem={({ item }) => (
